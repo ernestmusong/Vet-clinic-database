@@ -79,33 +79,9 @@ HAVING neutered = false; -- 5
 
 /* What is the minimum and maximum weight of each type of animal? */
 
-SELECT
-species,
-MIN(weight_kg)
+SELECT species, MIN(weight_kg), MAX(weight_kg)
 FROM animals
-GROUP BY species
-HAVING species = 'digimon';
-
-SELECT
-species,
-MAX(weight_kg)
-FROM animals
-GROUP BY species
-HAVING species = 'digimon';
-
-SELECT
-species,
-MIN(weight_kg)
-FROM animals
-GROUP BY species
-HAVING species = 'pokemon';
-
-SELECT
-species,
-MAX(weight_kg)
-FROM animals
-GROUP BY species
-HAVING species = 'pokemon';
+GROUP BY species;
 
 /* What is the average number of escape attempts per animal type
  of those born between 1990 and 2000? */
