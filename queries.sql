@@ -44,3 +44,75 @@ ROLLBACK TO DeleteDitto;
 UPDATE animals SET weight_kg = weight_kg * -1
 WHERE weight_kg < 0;
 COMMIT;
+
+/* Write queries to answer the following questions */
+
+-- How many animals are there?
+SELECT COUNT(*) FROM animals;
+-- How many animals have never tried to escape?
+SELECT
+COUNT(*)
+FROM animals
+WHERE
+escape_attempts = 0;
+-- What is the average weight of animals?
+SELECT AVG(weight_kg)
+FROM animals;
+
+/* Who escapes the most, neutered or not neutered animals? */
+
+-- 01) sum escape_attempts for neutered animals
+SELECT
+neutered,
+SUM(escape_attempts)
+FROM animals
+GROUP BY neutered
+HAVING neutered = true; -- 20
+-- 02) sum escape_attempts for neutered animals
+SELECT
+neutered,
+SUM(escape_attempts)
+FROM animals
+GROUP BY neutered
+HAVING neutered = false; -- 5
+-- answer = neutered
+
+/* What is the minimum and maximum weight of each type of animal? */
+
+SELECT
+species,
+MIN(weight_kg)
+FROM animals
+GROUP BY species
+HAVING species = 'digimon';
+
+SELECT
+species,
+MAX(weight_kg)
+FROM animals
+GROUP BY species
+HAVING species = 'digimon';
+
+SELECT
+species,
+MIN(weight_kg)
+FROM animals
+GROUP BY species
+HAVING species = 'pokemon';
+
+SELECT
+species,
+MAX(weight_kg)
+FROM animals
+GROUP BY species
+HAVING species = 'pokemon';
+
+/* What is the average number of escape attempts per animal type
+ of those born between 1990 and 2000? */
+
+SELECT
+species, avg(escape_attempts)
+from animals
+WHERE  EXTRACT(YEAR FROM date_of_birth) BETWEEN 1990 AND 2000
+GROUP BY species;
+ 
