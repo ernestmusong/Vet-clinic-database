@@ -127,4 +127,31 @@ true,
 true,
 22
    );
+
+  -- Insert data into owners table
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith',34),
+       ('Jennifer Orwell', 19),
+       ('Bob', 45),
+       ('Melody Pond', 77),
+       ('Dean Winchester', 14),
+       ('Jodie Whittaker', 38);
+
+  -- Insert data into species table
+INSERT INTO species (name)
+VALUES ('Pokemon'),('Digimon');
+
+-- update animals to include species_id
+UPDATE animals SET species_id = 2 WHERE name LIKE '%mon';
+
+-- update animals to include onwers_id
+UPDATE animals SET species_id = 1 WHERE name NOT LIKE '%mon';
+
+ -- update animals to includes owner information
+UPDATE animals set owners_id = 1 WHERE name LIKE 'Agumon';
+UPDATE animals set owners_id = 2 WHERE name IN ('Gabumon','Pikachu');
+UPDATE animals set owners_id = 3 WHERE name IN ('Davimon','Plantmon');
+UPDATE animals set owners_id = 4 WHERE name IN  ('Chamandar',' Squirtle ','Blossom');
+UPDATE animals set owners_id = 5 WHERE name IN ('Angemon','Boarmon');      
+  
  
