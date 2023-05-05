@@ -1,4 +1,5 @@
 /* Database schema to keep the structure of entire database. */
+
 CREATE TABLE animals (
     id int,
     name varchar(100),
@@ -37,3 +38,31 @@ ALTER TABLE animals ADD CONSTRAINT fk_species FOREIGN KEY(species_id) REFERENCES
 ALTER TABLE animals ADD column owners_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_owners FOREIGN KEY(owners_id) REFERENCES owners(id);
 
+/* VET CLINIC DATABASE: Add "join table" for visits */
+
+-- Create vets table
+CREATE TABLE vets (
+    id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    age int NOT NULL,
+    date_of_graduation date NOT NULL
+);
+-- Create "join table"
+CREATE TABLE specializations (
+species_id int,
+vets_id int
+);
+-- Add primary key to specializations and reference foreign keys
+ALTER TABLE specializations ADD PRIMARY KEY (species_id, vets_id);
+ALTER TABLE specializations ADD CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species (id);
+ALTER TABLE specializations ADD CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets (id);
+-- Create "join table"
+ CREATE TABLE visits (
+animals_id int,
+vets_id int,
+date_of_visit date NOT NULL
+ );
+ -- Add primary key to visits and reference foreign keys
+ALTER TABLE visits ADD PRIMARY KEY (animals_id, vets_id, date_of_visit);
+ALTER TABLE visits ADD CONSTRAINT fk_animals FOREIGN KEY (animals_id) REFERENCES animals (id);
+ALTER TABLE visits ADD CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets (id);
