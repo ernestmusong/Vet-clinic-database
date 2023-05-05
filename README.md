@@ -24,7 +24,7 @@
 
 # 📖 [Vet clinic database] <a name="about-project"></a>
 
-**[Vet clinic database]** is a project at <a href='https://www.microverse.org/'>Microverse</a>. It's a database with animals table.
+**[Vet clinic database]** is a project at <a href='https://www.microverse.org/'>Microverse</a>. It's a Relational database that contains related tables with animals data.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -35,6 +35,16 @@
     <li><a href="#">PostgreSQL</a></li>
   </ul>
 </details>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Key Features <a name="key-features"></a>
+
+- **[Create database]**
+- **[Create table]**
+- **[Add column]**
+- **[Insert data]**
+- **[Query data]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -63,14 +73,6 @@ sh
 - LinkedIn: [Musong Ernest](https://www.linkedin.com/in/musongernestakeh/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **[I intend to add a dropdown list of companies]**
- 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 🤝 Contributing <a name="contributing"></a>
 
